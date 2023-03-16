@@ -90,7 +90,7 @@ const styles = StyleSheet.create({
     },
     btnImg: {
         flex: 1,
-        tintColor: "purple"
+        tintColor: "#800480"
     }
 })
 export default BankCard;

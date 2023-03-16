@@ -1,13 +1,12 @@
 import { StyleSheet, StatusBar, View, Text, Image } from "react-native";
 function Header() {
-
   const user = {
     name: "User Developer",
     photoUrl: 'https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_640.png'
   }
   return (
     <View style={styles.wrapper}>
-      <StatusBar backgroundColor={'purple'} barStyle='light-content' translucent={false} />
+      <StatusBar backgroundColor={'#800480'} barStyle='light-content' translucent={false} />
       <View style={styles.avatarWrap}>
         <Image source={{ uri: user?.photoUrl }} style={styles.avatarImg} />
       </View>
@@ -21,7 +20,7 @@ function Header() {
 
 const styles = StyleSheet.create({
   wrapper: {
-    backgroundColor: "purple",
+    backgroundColor: "#800480",
     paddingHorizontal: 30,
     paddingTop: 20,
     paddingBottom: 40,
@@ -32,7 +31,6 @@ const styles = StyleSheet.create({
     width: 40,
     height: 40,
     borderRadius: 20,
-    backgroundColor: "black"
   },
   avatarImg: {
     flex: 1
@@ -43,11 +41,11 @@ const styles = StyleSheet.create({
     flexDirection: "column"
   },
   greeting: {
-    color: "white",
+    color: "#FFF",
     fontSize: 14
   },
   name: {
-    color: "white",
+    color: "#FFF",
     fontSize: 16,
     fontWeight: "bold"
   }

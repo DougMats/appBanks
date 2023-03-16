@@ -18,7 +18,7 @@ function useSqliteViewModel() {
     const banks: Array<BankEntity> = [];
     const selectQuery = 'SELECT * FROM banks';
     const results = await db.executeSql(selectQuery);
-    results.forEach(function (result) {
+    results.forEach(function (result:any) {
       for (let index = 0; index < result.rows.length; index++) {
         banks.push(result.rows.item(index));
       }
@@ -43,55 +43,9 @@ function useSqliteViewModel() {
     return db;
   }
 
-  const initDataBase = async () => {
-    const db = await getDBConnection()
-    await createTables(db)
-    db.close();
-  }
-
-
-
-  //   // const updateTask = (id: number, name: string, completed: boolean) => {
-  //   //   console.log("here 4")
-  //   //   db.transaction((tx) => {
-  //   //     tx.executeSql(
-  //   //       'UPDATE tasks SET name=?, completed=? WHERE id=?;',
-  //   //       [name, completed ? 1 : 0, id],
-  //   //       (tx, result) => {
-  //   //         console.log('Registro actualizado exitosamente');
-  //   //       },
-  //   //       (tx, error) => {
-  //   //         console.log('Error al actualizar registro:', error);
-  //   //       },
-  //   //     );
-  //   //   });
-  //   // };
-
-
-
-  //   // // Eliminar registro
-  //   // const deleteTask = (id: number) => {
-  //   //   console.log("here 5")
-  //   //   db.transaction((tx) => {
-  //   //     tx.executeSql(
-  //   //       'DELETE FROM tasks WHERE id=?;',
-  //   //       [id],
-  //   //       (tx, result) => {
-  //   //         console.log('Registro eliminado exitosamente');
-  //   //       },
-  //   //       (tx, error) => {
-  //   //         console.log('Error al eliminar registro:', error);
-  //   //       },
-  //   //     );
-  //   //   });
-  //   // };
-
-
-
   return {
     getDBConnection,
     createTables,
-    initDataBase,
     insertInto,
     selectFrom,
   }

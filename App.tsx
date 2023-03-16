@@ -1,22 +1,15 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { SafeAreaView } from 'react-native';
-import useSqliteViewModel from './src/ui/viewModels/db.lite.viewModel';
-
+import { DbContextProvider } from './src/ui/viewModels/db.context.viewModels';
 import BankList from './src/ui/views/bankList/index';
 
 function App(): JSX.Element {
-  useEffect(()=> {
-    async function init() {
-      await useSqliteViewModel().initDataBase();
-    }
-    init();
-  }, []);
-
-
   return (
-    <SafeAreaView style={{ flex: 1 }}>
-      <BankList />
-    </SafeAreaView>
+    <DbContextProvider>
+      <SafeAreaView style={{ flex: 1 }}>
+        <BankList />
+      </SafeAreaView>
+    </DbContextProvider>
   );
 }
 export default App;
